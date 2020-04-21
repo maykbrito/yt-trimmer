@@ -15,8 +15,6 @@ It will crop a youtube video, by adding start and end values, save it to local, 
 - `Video ends in` When video will end? format `HH:mm:ss.ms`
 - `Filename` Filename that will be output. Don't need to provide .extension of file. If no filename `part.mp4` will be the filename.
 
-![Prompt Example](https://i.imgur.com/ysMAnbZ.png)
-
 4. When finished, the video will be save at local project folder
 
 _Obs.: You need ffmpeg in your machine_
