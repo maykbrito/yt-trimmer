@@ -1,6 +1,6 @@
 <h1 align="center">Download and trim some YouTube Video</h1>
 <p align="center"><img src="https://i.gyazo.com/8a83fbcebd7415f2bfa8b89a8b6ca3ce.gif"><br/>
-It will crop a youtube video, by adding start and end values, save it to local, and upload to your youtube channel.
+It will download and cut a youtube video, by adding start and end values, save it to local, and upload to your youtube channel.
 </p>
 
 ---
