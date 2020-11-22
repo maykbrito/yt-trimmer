@@ -1,7 +1,7 @@
-const util = require('util');
-const getVideoInfo = util.promisify(require('youtube-dl').getInfo);
-
+const { exec } = require('./utils')
 
 module.exports = async content => {
-    content.info = await getVideoInfo(content.youtubeUrl, [])
+    const { stdout } = await exec(`sh ./videourl.sh ${content.youtubeUrl}`)
+
+    content.info = { url: stdout }
 }
