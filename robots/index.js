@@ -1,9 +1,9 @@
 const input = require('./input');
-const trim = require('./trim');
 const info = require('./info');
+const download = require('./download');
 
 module.exports = {
   input,
-  trim,
-  info
+  info,
+  download,
 };
