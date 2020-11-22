@@ -7,7 +7,7 @@ It will download and cut a youtube video, by adding start and end values, save i
 
 ## How to use it?
 
-1. Clone this repo, go to repo folder
+1. Clone this repo, go to repo folder, and install with `npm install`
 2. Start with `node index.js`
 3. You will be prompted and will be asked for:
 - `Youtube url` Youtube video url with http(s)
