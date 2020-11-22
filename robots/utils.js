@@ -14,7 +14,7 @@ function toSeconds(start, end) {
     const endToSeconds =
         parseInt(endHour) * 60 + parseInt(endMinutes) * 60 + parseInt(endSec);
 
-    const miliseconds = +(parseInt(endMiliseconds) - parseInt(startMiliseconds));
+    const miliseconds = Math.abs(parseInt(endMiliseconds) - parseInt(startMiliseconds));
 
     const toSeconds = +(parseInt(endToSeconds) - parseInt(startToSeconds));
 
