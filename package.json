@@ -1,16 +1,14 @@
 {
   "name": "yt-trimmer",
-  "version": "1.0.1",
-  "description": "",
-  "main": "src/index.js",
+  "version": "1.0.2",
+  "description": "To download section (part) of YouTube's video",
+  "author": "Mayk Brito",
+  "license": "MIT",
   "scripts": {
-    "start": "node src/index.js"
+    "trim": "node src/actions/single-part.js",
+    "trimall": "node src/actions/multiple-parts.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "readline-sync": "^1.4.10",
-    "youtube-dl": "^3.0.2"
+    "readline-sync": "^1.4.10"
   }
 }

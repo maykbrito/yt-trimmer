@@ -1,30 +1,50 @@
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
+/**
+ * Format hh:mm:ss.ms to seconds.milliseconds
+ * @param {String} start  "hh:mm:ss.ms"
+ * @param {String} end "hh:mm:ss.ms"
+ * @returns {String} "ss.ms"
+ */
 function toSeconds(start, end) {
-    const [startHour, startMinutes, startSeconds] = start.split(":");
-    const [startSec, startMiliseconds] = startSeconds.split(".");
+  const [startHour, startMinutes, startSeconds] = start.split(':')
+  let [startSec, startMiliseconds] = startSeconds.split('.')
+  startMiliseconds = startMiliseconds || '000'
 
-    const [endHour, endMinutes, endSeconds] = end.split(":");
-    const [endSec, endMiliseconds] = endSeconds.split(".");
+  const [endHour, endMinutes, endSeconds] = end.split(':')
+  let [endSec, endMiliseconds] = endSeconds.split('.')
+  endMiliseconds = endMiliseconds || '000'
 
-    const startToSeconds =
-        parseInt(startHour) * 60 + parseInt(startMinutes) * 60 + parseInt(startSec);
+  const hoursToMs = hours => Number(hours) * 60 * 60 * 1000
+  const minutesToMs = minutes => Number(minutes) * 60 * 1000
+  const secToMs = seconds => Number(seconds) * 1000
 
-    const endToSeconds =
-        parseInt(endHour) * 60 + parseInt(endMinutes) * 60 + parseInt(endSec);
+  const startToMs =
+    hoursToMs(startHour) +
+    minutesToMs(startMinutes) +
+    secToMs(startSec) +
+    Number(startMiliseconds)
 
-    const miliseconds = Math.abs(parseInt(endMiliseconds) - parseInt(startMiliseconds));
+  const endToMs =
+    hoursToMs(endHour) +
+    minutesToMs(endMinutes) +
+    secToMs(endSec) +
+    Number(endMiliseconds)
 
-    const toSeconds = +(parseInt(endToSeconds) - parseInt(startToSeconds));
+  const range = endToMs - startToMs
 
-    console.log("===================================");
-    console.log(`start (${start}) - end (${end}): toSeconds: ${toSeconds}.${miliseconds}`);
-    return `${toSeconds}.${miliseconds}`;
+  const rangeToSec = Math.floor(range / 1000)
+  const ms = range % 1000
+
+  console.log('===================================')
+  console.log(
+    `start (${start}) - end (${end}): toSeconds: ${rangeToSec}, ms: ${ms}`
+  )
+  return `${rangeToSec}.${ms}` // 183.200
 }
 
-
 module.exports = {
-    exec,
-    toSeconds,
+  exec,
+  toSeconds
 }
