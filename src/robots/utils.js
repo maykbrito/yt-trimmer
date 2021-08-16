@@ -2,6 +2,19 @@ const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
 /**
+ * Get range of end minus start to build -t flag of ffmpeg
+ * @param {Number} end end time in miliseconds
+ * @param {Number} start start time in miliseconds
+ * @return {String} Time in miliseconds
+ */
+function grabRange(end, start) {
+  const range = end - start
+
+  console.log(`start (${start}) - end (${end}) = ${range}`)
+  return range // 183.200
+}
+
+/**
  * Format hh:mm:ss.ms to seconds.milliseconds
  * @param {String} start  "hh:mm:ss.ms"
  * @param {String} end "hh:mm:ss.ms"
@@ -46,5 +59,6 @@ function toSeconds(start, end) {
 
 module.exports = {
   exec,
-  toSeconds
+  toSeconds,
+  grabRange
 }

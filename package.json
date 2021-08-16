@@ -6,9 +6,21 @@
   "license": "MIT",
   "scripts": {
     "trim": "node src/actions/single-part.js",
-    "trimall": "node src/actions/multiple-parts.js"
+    "trimall": "node src/actions/multiple-parts.js",
+    "start": "webpack && node src/server/server.js"
   },
   "dependencies": {
-    "readline-sync": "^1.4.10"
+    "@thelevicole/youtube-to-html5-loader": "^4.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "readline-sync": "^1.4.10",
+    "sass": "^1.37.5"
+  },
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.50.0",
+    "webpack-cli": "^4.7.2"
   }
 }
