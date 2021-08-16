@@ -11,6 +11,14 @@ Clone this repo, go to repo folder, and install with `npm install`
 
 _Obs.: You need ffmpeg and youtube-dl in your machine_
 
+## WEB
+
+1. Start project with `npm start`
+2. Open your browser at http://localhost:3000/
+3. Follow page instructions
+
+## CLI
+
 ### Download single cut (part) of the video
 
 1. Start with `npm run trim`
@@ -49,3 +57,5 @@ const data = {
 - readline-sync
 - youtube-dl
 - ffmpeg
+- webpack
+- sass
