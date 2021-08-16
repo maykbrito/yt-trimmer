@@ -1,29 +1,47 @@
-const { exec, toSeconds } = require('./utils.js')
+const { exec, toSeconds, grabRange } = require('./utils.js')
 
-const filename = name =>
+const createFilename = name =>
   name ? name.replace(/\s/g, '-').toLowerCase() : 'part'
 
 const VIDEOQUALITY = 'bestvideo[height<=1080]+bestaudio[height<=1080]/best'
 
 const youtubedlUrl = url => `"$(youtube-dl -f '${VIDEOQUALITY}' -g '${url}')"`
 
-const downloadPart = async content => {
+/**
+ * Function that download partial video content from given Youtube URL
+ *
+ * @param {Object} content
+ * @param {String} content.url - Youtube URL
+ * @param {String} content.from - time as 00:00:00 or miliseconds
+ * @param {String} content.to - time as 00:00:00 or miliseconds
+ * @param {String} content.filename
+ * @returns {Promise}
+ * @example
+ * await downloadPart({
+ * url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+ * from: '00:00:00',
+ * to: '00:00:10',
+ * filename: 'video.mp4'
+ * })
+ */
+const downloadPart = async ({ url, from, to, filename }) => {
+  const ss = from
+  const t = String(to).includes(':') ? toSeconds(from, to) : grabRange(to, from)
+  const outputFilename = createFilename(filename)
   try {
-    console.log('> Starting dowload and convert')
+    console.log('> Dowloading and converting')
     await exec(
-      `ffmpeg -ss ${content.from} \
-      -i "${youtubedlUrl(content.url)}" \
-      -t ${toSeconds(content.from, content.to)} \
+      `ffmpeg -ss ${ss} \
+      -i "${youtubedlUrl(url)}" \
+      -t ${t} \
       -c:a aac -c:v libx264 -preset ultrafast \
       -s 1920x1080 \
-      ${filename(content.filename)}.mp4`
+      ${outputFilename}.mp4`
     )
-    console.log(`> Video ${content.filename} has downloaded and converted!`)
+    console.log(`> Video ${outputFilename} has downloaded and converted!`)
   } catch (error) {
     throw new Error(error)
   }
 }
 
-module.exports = async content => {
-  await downloadPart(content)
-}
+module.exports = downloadPart
