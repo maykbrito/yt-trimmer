@@ -7,7 +7,8 @@
   "scripts": {
     "trim": "node src/actions/single-part.js",
     "trimall": "node src/actions/multiple-parts.js",
-    "start": "webpack && node src/server/server.js"
+    "start": "webpack && node src/server/server.js",
+    "dev": "webpack && nodemon src/server/server.js"
   },
   "dependencies": {
     "@thelevicole/youtube-to-html5-loader": "^4.0.1",

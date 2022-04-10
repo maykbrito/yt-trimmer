@@ -36,9 +36,9 @@ const downloadPart = async ({ url, from, to, filename }) => {
       -t ${t} \
       -c:a aac -c:v libx264 -preset ultrafast \
       -s 1920x1080 \
-      ${outputFilename}.mp4`
+      public/video/${outputFilename}.mp4`
     )
-    console.log(`> Video ${outputFilename} has downloaded and converted!`)
+    console.log(`> Video public/video/${outputFilename} has downloaded and converted!`)
   } catch (error) {
     throw new Error(error)
   }

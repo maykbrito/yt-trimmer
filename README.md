@@ -59,3 +59,9 @@ const data = {
 - ffmpeg
 - webpack
 - sass
+
+## Created by maykbrito 
+  - (https://github.com/maykbrito/yt-trimmer)
+
+### Edit & translate by xdrkush 
+  - (https://github.com/xdrkush/yt-trimmer)

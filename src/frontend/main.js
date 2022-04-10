@@ -56,7 +56,7 @@ function downloadSelection() {
   message.style.color = 'orange'
   message.innerText = 'start converting video'
 
-  fetch('http://localhost:3000/download', {
+  fetch('/download', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -73,8 +73,13 @@ function downloadSelection() {
       if (json.includes('.mp4')) {
         message.style.color = 'green'
         message.innerText = 'Success!'
-        youtubeVideo.src = json
+        youtubeVideo.src = `video/${json}`
         youtubeVideo.autoplay = true
+        download.innerHTML = `
+          <a href="/download/${json}">
+            <button style="color: #191624"><strong>DOWNLOAD</strong></button>
+          </a>
+        `
         return
       }
 
