@@ -4,6 +4,9 @@
   "description": "To download section (part) of YouTube's video",
   "author": "Mayk Brito",
   "license": "MIT",
+  "engines": {
+    "node": "v14.18.2"
+  },
   "scripts": {
     "trim": "node src/actions/single-part.js",
     "trimall": "node src/actions/multiple-parts.js",
