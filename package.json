@@ -26,5 +26,15 @@
     "style-loader": "^3.2.1",
     "webpack": "^5.50.0",
     "webpack-cli": "^4.7.2"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdrkush/yt-trimmer.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/xdrkush/yt-trimmer/issues"
+  },
+  "homepage": "https://github.com/xdrkush/yt-trimmer#readme"
 }
