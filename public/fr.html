@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>YT-trimmer</title>
   <script src="dist/bundle.js" async></script>
 </head>
 
@@ -23,33 +23,35 @@
   </div>
 
   <h1 style="text-align: center">YouTube Video Cropper</h1>
-  
+
   <main>
     <div>
       <section>
-        <h2>Como usar?</h2>
+        <h2>Comment utiliser ?</h2>
         <ul>
           <li>
-            Insira a URL do vídeo do Youtube no campo
-            <strong> Youtube Video URL </strong>
+            Insérer une URL d'une vídeo Youtube dans le champs URL
+            <strong> Youtube Video URL, </strong> puis cliqué sur <strong>load</strong> pour charger la video.
           </li>
           <li>
-            Com o vídeo carregado, utilize a tecla
-            <strong style="color: greenyellow">i</strong> do seu teclado para
-            selecionar o ponto de início do corte
+            Avec la vidéo chargée, utilisez la touche
+            <strong style="color: greenyellow">i</strong> de votre clavier pour sélectionner le point de départ de la
+            coupe (ou pendant la lecture).
           </li>
           <li>
-            Selecione a tecla <strong style="color: greenyellow">o</strong> do
-            seu teclado para marcar o ponto de final do corte
+            Sélectionnez la touche <strong style="color: greenyellow">o</strong> de votre clavier pour marquer le point
+            final de la coupe (ou pendant la lecture).
           </li>
           <li>
-            Utilize a tecla <strong style="color: greenyellow">p</strong> do
-            seu teclado para tocar a seleção
+            Utiliser la touche <strong style="color: greenyellow">p</strong> de votre clavier pour lire votre coupe.
           </li>
           <li>
-            Caso esteja do seu agrado, utilize a tecla
-            <strong style="color: greenyellow">d</strong> para fazer o
-            download da seleção
+            Si vous l'aimez, utilisez la touche
+            <strong style="color: greenyellow">d</strong> pour convertir et formater votre vidéo
+          </li>
+          <li>
+            Un boutton <strong>télécharger</strong> apparaîtra sous le button <strong>load</strong>
+            quand votre vidéo sera prếte à être télécharger
           </li>
         </ul>
         <div id="message" style="color: orange"></div>
@@ -71,6 +73,7 @@
         </div>
       </section>
     </div>
+
     <div>
       <video id="youtubeVideo" class="youtube-video" data-yt="" controls></video>
     </div>

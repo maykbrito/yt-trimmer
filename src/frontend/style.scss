@@ -17,6 +17,14 @@ section {
 
 li {
   opacity: 0.8;
+  padding: 0 15px;
+}
+
+.item {
+  color: greenyellow;
+  list-style: none;
+  text-decoration: underline;
+  text-decoration-color: greenyellow;
 }
 
 video {
@@ -44,3 +52,5 @@ button {
     flex: 1;
   }
 }
+
+.space-around {display: flex;justify-content: space-around;}
