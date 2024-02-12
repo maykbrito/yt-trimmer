@@ -9,7 +9,7 @@ It will download and cut a youtube video, by adding start and end values, save i
 
 Clone this repo, go to repo folder, and install with `npm install`
 
-_Obs.: You need ffmpeg and youtube-dl in your machine_
+_Obs.: You need ffmpeg and yt-dlp in your machine_
 
 ## WEB
 

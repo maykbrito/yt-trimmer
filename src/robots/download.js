@@ -5,7 +5,7 @@ const createFilename = name =>
 
 const VIDEOQUALITY = 'bestvideo[height<=1080]+bestaudio[height<=1080]/best'
 
-const youtubedlUrl = url => `"$(youtube-dl -f '${VIDEOQUALITY}' -g '${url}')"`
+const youtubedlUrl = url => `"$(yt-dlp -f '${VIDEOQUALITY}' -g '${url}')"`
 
 /**
  * Function that download partial video content from given Youtube URL
@@ -32,7 +32,7 @@ const downloadPart = async ({ url, from, to, filename }) => {
     console.log('> Dowloading and converting')
     await exec(
       `ffmpeg -ss ${ss} \
-      -i "${youtubedlUrl(url)}" \
+      -i ${youtubedlUrl(url)} \
       -t ${t} \
       -c:a aac -c:v libx264 -preset ultrafast \
       -s 1920x1080 \
