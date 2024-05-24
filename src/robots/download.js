@@ -3,10 +3,14 @@ const { exec, toSeconds, grabRange } = require('./utils.js')
 const createFilename = name =>
   name ? name.replace(/\s/g, '-').toLowerCase() : 'part'
 
-const VIDEOQUALITY = 'bestvideo[height<=1080]+bestaudio[height<=1080]/best'
+// const VIDEOQUALITY = 'bestvideo[height<=1080]+bestaudio[height<=1080]/best'
+// const VIDEOQUALITY = 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b'
+// const VIDEOQUALITY = "bv+ba/b"
 
-const youtubedlUrl = url => `"$(yt-dlp -f '${VIDEOQUALITY}' -g '${url}')"`
-
+// const youtubedlUrl = url => `"$(yt-dlp -f '${VIDEOQUALITY}' -g '${url}')"`
+// const youtubedlUrl = url => `"$(yt-dlp -g '${url}')"`
+const youtubedlUrl = url => `"$(yt-dlp -S size -g '${url}')"`
+  
 /**
  * Function that download partial video content from given Youtube URL
  *

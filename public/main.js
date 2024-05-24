@@ -59,7 +59,7 @@ const downloadSelection = () => {
     body: JSON.stringify({
       inputIn: Number(inputIn.innerText),
       inputOut: Number(inputOut.innerText),
-      inputVideo: inputVideo.value
+      inputVideo: player.getVideoUrl()
     })
   })
   .then(response => response.json())

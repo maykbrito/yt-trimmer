@@ -7,11 +7,14 @@
   "scripts": {
     "trim": "node src/actions/single-part.js",
     "trimall": "node src/actions/multiple-parts.js",
-    "start": "node src/server/server.js"
+    "start": "node src/server/server.js",
+    "dev": "node src/server/server.js && npx tailwindcss -i ./public/input.css -o ./public/style.css --watch",
+    "build": "npx tailwindcss -i ./public/input.css -o ./public/style.css"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "tailwindcss": "^3.4.3"
   }
 }
