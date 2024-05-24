@@ -1,68 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="dist/bundle.js" async></script>
-  </head>
-  <body>
-    <h1 style="text-align: center">YouTube Video Cropper</h1>
-    <main>
-      <div>
-        <section>
-          <h2>Como usar?</h2>
-          <ul>
-            <li>
-              Insira a URL do vídeo do Youtube no campo
-              <strong> Youtube Video URL </strong>
-            </li>
-            <li>
-              Com o vídeo carregado, utilize a tecla
-              <strong style="color: greenyellow">i</strong> do seu teclado para
-              selecionar o ponto de início do corte
-            </li>
-            <li>
-              Selecione a tecla <strong style="color: greenyellow">o</strong> do
-              seu teclado para marcar o ponto de final do corte
-            </li>
-            <li>
-              Utilize a tecla <strong style="color: greenyellow">p</strong> do
-              seu teclado para tocar a seleção
-            </li>
-            <li>
-              Caso esteja do seu agrado, utilize a tecla
-              <strong style="color: greenyellow">d</strong> para fazer o
-              download da seleção
-            </li>
-          </ul>
-          <div id="message" style="color: orange"></div>
-        </section>
-        <section class="videoInfo">
-          <div>
-            <strong>In</strong>
-            <span id="inputIn" style="color: greenyellow">0.00</span>
-            <br />
-            <strong>Out</strong>
-            <span id="inputOut" style="color: greenyellow">0.00</span>
-          </div>
-          <div>
-            <input id="inputVideo" type="url" placeholder="Youtube Video URL" />
-            <br />
-            <button id="loadVideo">Load</button>
-          </div>
-        </section>
+<html lang="pt_BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Cropper</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/franken-ui-releases@0.0.12/dist/slate.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.20.8/dist/js/uikit-icons.min.js"></script>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body class="dark uk-background-default">
+  <div class="mt-4 container mx-auto px-4 max-w-xl">
+    <section class="uk-card uk-card-body uk-card-default mt-4">
+
+      <div class="flex justify-between items-center">
+
+      <h1 class="text-2xl">YouTube Video Cropper</h1>
+
+      <!-- This is a button toggling the modal -->
+      <button
+        type="button"
+        uk-toggle="target: #modal-example"
+        uk-icon="question"
+      >
+        
+      </button>
       </div>
 
-      <div>
-        <video
-          id="youtubeVideo"
-          class="youtube-video"
-          data-yt=""
-          controls
-        ></video>
+    </section>
+
+    <div class="uk-card uk-card-body uk-card-default mt-4">
+      <div class="flex gap-2">
+        <input 
+          class="uk-input"
+          id="inputVideo" 
+          type="url" 
+          placeholder="Youtube Video ID" />
+        <br />
+        <button class="uk-button uk-button-default" id="loadVideo">Load</button>
       </div>
-    </main>
-  </body>
+    </div>
+
+    <div class="uk-card uk-card-body uk-card-default mt-4">
+      <video
+        id="youtubeVideo"
+        class="w-full aspect-video youtube-video"
+        data-yt=""
+        controls
+      ></video>
+
+      <div class="flex gap-4 mt-4 items-center">
+        <button id="btnSetIn" class="uk-button uk-button-default">In</button>
+        <span id="inputIn" style="color: greenyellow" contenteditable="">0.00</span>
+        <br />
+        <button id="btnSetOut" class="uk-button uk-button-default">Out</button>
+        <span id="inputOut" style="color: greenyellow" contenteditable="">0.00</span>
+        <button id="btnPlaySelection" class="uk-button uk-button-default ml-auto">Play</button>
+        <button id="btnDownloadSelection" class="uk-button uk-button-default">Download</button>
+      </div>  
+    </div>
+
+
+    <div class="uk-alert mt-4" uk-alert>
+      <a href class="uk-alert-close" uk-close></a>
+      <div class="uk-alert-description text-muted">
+        <div id="message">
+          Waiting for action ...
+        </div>
+      </div>
+    </div>
+    
+    <!-- This is the modal -->
+    <div id="modal-example" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-body uk-margin-auto-vertical uk-modal-dialog text-white space-y-4">
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Como usar?</h2>
+        <p>
+          1. Insira o ID do vídeo do Youtube no campo
+          <strong> Youtube Video ID </strong>
+        </p>
+
+        <p>
+          2. Com o vídeo carregado, utilize o botão <span style="color: greenyellow">In</span> para selecionar o ponto de início do corte
+        </p>
+
+        <p>
+          3. Com o botão <span style="color: greenyellow">Out</span>, selecione o ponto final do corte
+        </p>
+
+        <p>
+          4. Clique no botão <span style="color: greenyellow">Play</span> para executar a seleção
+        </p>
+
+        <p>
+          5. Caso esteja do seu agrado, clique no botão <span style="color: greenyellow">Download</span> para fazer o download da seleção
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
 </html>
